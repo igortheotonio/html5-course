@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Tudo sobre Google Glass</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/form.css" />
+    <script src="javascript/functions.js"></script>
+    <script>
+      function calcTotal() {
+        var qtd = parseInt(document.getElementById('fQtd').value);
+        console.log(qtd);
+        total = qtd * 1500;
+        document.getElementById('fTotal').value = total;
+      }
+    </script>
+  </head>
+
+  <body>
+    <div id="interface">
+      <header id="header">
+        <h1>Google Glass</h1>
+        <h2>A revolução do Google está chegando</h2>
+
+        <img id="glass-icon" src="images/contato.png" alt="google glass" />
+
+        <nav id="menu">
+          <h1>Menu Principal</h1>
+          <ul>
+            <li
+              onmouseover="changePicture('images/home.png')"
+              onmouseout="changePicture('images/contato.png')"
+            >
+              <a href="index.html">Home</a>
+            </li>
+            <li
+              onmouseover="changePicture('images/especificacoes.png')"
+              onmouseout="changePicture('images/contato.png')"
+            >
+              <a href="specs.html">Especificações</a>
+            </li>
+            <li
+              onmouseover="changePicture('images/fotos.png')"
+              onmouseout="changePicture('images/contato.png')"
+            >
+              <a href="photos.html">Fotos</a>
+            </li>
+            <li
+              onmouseover="changePicture('images/multimidia.png')"
+              onmouseout="changePicture('images/contato.png')"
+            >
+              <a href="multimedia.html">Multimídia</a>
+            </li>
+            <li
+              onmouseover="changePicture('images/contato.png')"
+              onmouseout="changePicture('images/contato.png')"
+            >
+              <a href="contact-us.html">Fale Conosco</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <section id="full-body">
+        <article id="main-new">
+          <header id="article-header">
+            <h3>Fale Conosco > Contato</h3>
+            <h1>Formulário de Contato</h1>
+            <h2>por Gustavo Guanabara</h2>
+            <h3 class="right">Atualizado em 01/Maio/2013</h3>
+          </header>
+        </article>
+      </section>
+
+      <form
+        method="POST"
+        id="contactForm"
+        action="mailto:contato@cursoemvideo.com"
+        oninput="calcTotal();"
+      >
+        <fieldset id="user">
+          <legend>Identificação do Usuário</legend>
+          <p>
+            <label for="fName">Nome:</label>
+            <input
+              type="text"
+              name="tName"
+              id="fName"
+              size="20"
+              maxlength="30"
+              placeholder="Nome Completo"
+            />
+          </p>
+          <p>
+            <label for="fPassword">Senha:</label>
+            <input
+              type="password"
+              name="tPassword"
+              id="fPassword"
+              size="8"
+              maxlength="8"
+              placeholder="8 dígitos"
+            />
+          </p>
+          <p>
+            <label for="fMail">E-mail:</label>
+            <input
+              type="email"
+              name="tMail"
+              id="fMail"
+              size="20"
+              maxlength="40"
+              placeholder="exemplo@exemplo.com"
+            />
+          </p>
+          <fieldset id="sex">
+            <legend>Sexo:</legend>
+            <input type="radio" name="tSex" id="fMale" />
+            <label for="fMale">Masculino</label><br />
+            <input type="radio" name="tSex" id="fFemale" />
+            <label for="fFemale">Feminino</label>
+          </fieldset>
+          <p>
+            <label for="fBirth">Data de Nascimento:</label>
+            <input type="date" name="tBirth" id="fBirth" />
+          </p>
+        </fieldset>
+        <fieldset id="address">
+          <legend>Endereço do Usuário</legend>
+          <p>
+            <label for="fStreet">Logradouro:</label>
+            <input
+              type="text"
+              name="cStreet"
+              id="fStreet"
+              size="13"
+              maxlength="80"
+              placeholder="Rua, Av, Travessa..."
+            />
+          </p>
+          <p>
+            <label for="fSNumber">Número:</label>
+            <input
+              type="number"
+              name="cSNumber"
+              id="fSNumber"
+              min="0"
+              max="99999"
+            />
+          </p>
+          <p>
+            <label for="fState">Estado:</label>
+            <select name="tState" id="fState">
+              <optgroup label="Região Sudeste">
+                <option>Rio de Janeiro</option>
+                <option>São Paulo</option>
+                <option>Minas Gerais</option>
+              </optgroup>
+              <optgroup label="Região Sul">
+                <option>Paraná</option>
+                <option>Santa Catarina</option>
+                <option>Rio Grande do Sul</option>
+              </optgroup>
+            </select>
+          </p>
+          <p>
+            <label for="fCity">Cidade:</label>
+            <input
+              type="text"
+              name="cCity"
+              id="fCity"
+              maxlength="40"
+              size="20"
+              placeholder="Sua Cidade"
+              list="cities"
+            />
+          </p>
+          <datalist id="cities">
+            <option value="Rio de Janeiro"></option>
+            <option value="Nova Iguaçu"></option>
+            <option value="Niterói"></option>
+            <option value="Belford Roxo"></option>
+          </datalist>
+        </fieldset>
+        <fieldset id="message">
+          <legend>Mensagem do Usuário</legend>
+          <p>
+            <label for="fUrgency">Grau de Urgência: </label>
+            Mín<input
+              type="range"
+              name="tUrgency"
+              id="fUrgency"
+              min="0"
+              max="10"
+            />Máx
+          </p>
+
+          <p>
+            <label for="fMessage">Mensagem: </label>
+            <textarea
+              name="tMessage"
+              id="fMessage"
+              cols="35"
+              rows="5"
+              placeholder="Deixe aqui sua mensagem"
+            ></textarea>
+          </p>
+        </fieldset>
+        <fieldset id="order">
+          <legend>Quero um Google Glass</legend>
+
+          <p>
+            <input type="checkbox" name="tOrder" id="fOrder" checked />
+            <label for="fOrder"
+              >Gostaria de adquirir um Google Glass quando disponível</label
+            >
+          </p>
+
+          <p>
+            <label for="fColor">Cor:</label>
+            <input type="color" name="tColor" id="fColor" value="#0000FF" />
+          </p>
+
+          <p>
+            <label for="fQtd">Quantidade:</label>
+            <input
+              type="number"
+              name="cQtd"
+              id="fQtd"
+              min="0"
+              max="5"
+              value="0"
+            />
+          </p>
+
+          <p>
+            <label for="fTotal">Preço Total: R$</label>
+            <input
+              type="text"
+              name="cTotal"
+              id="fTotal"
+              placeholder="Total a pagar"
+              readonly
+            />
+          </p>
+        </fieldset>
+        <input
+          type="image"
+          src="images/botao-enviar.png"
+          alt="Botão Enviar"
+          name="tSend"
+          id="fSend"
+        />
+      </form>
+
+      <footer id="footer">
+        <p>
+          Copyright &copy; 2013 - by Gustavo Guanabara
+          <br />
+
+          <a href="http://facebook.com/cursosemvideo" target="_blank"
+            >Facebook</a
+          >
+          |
+          <a href="http://twitter.com/cursosemvideo" target="_blank">Twitter</a>
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>
